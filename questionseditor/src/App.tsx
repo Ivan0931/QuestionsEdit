@@ -1,25 +1,16 @@
 import React from 'react';
 import './App.css';
-import { Grid } from '@material-ui/core';
-import { connect } from 'react-redux';
+import TableQuestions from './Components/TableQuestions';
+import { Provider } from 'react-redux';
+import { store } from './redux/StoreConfig';
 
-export class App extends React.Component<{},{}> {
-  constructor(props: any) {
-    super(props);
-  };
-
-
-  render(): JSX.Element {
-    return (
+export const App: React.FC = () => {
+  return (
+    <Provider store={store}>
       <div className="App">
-        <Grid container>
-
-        </Grid>
+        <TableQuestions />
       </div>
-    );  
-  }
+    </Provider>
+    
+  );  
 }
-
-
-
-export default connect<null, null, {}>(null, null)(App);

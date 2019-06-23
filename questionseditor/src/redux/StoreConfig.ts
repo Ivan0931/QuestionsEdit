@@ -1,5 +1,6 @@
-import { Store, createStore } from "redux";
-import { rootReducer } from './rootReducer';
+import { Store, createStore, applyMiddleware } from "redux";
+import logger from 'redux-logger'
+import { rootReducer } from './reducers/rootReducer';
 
 export interface TableInfo {
     rowsCount?: number;
@@ -8,7 +9,7 @@ export interface TableInfo {
 }
 
 export interface TableState {
-    table: Array<Array<number>>;
+    table?: Array<Array<number>>;
     tableInfo?: TableInfo;
 }
 
@@ -16,15 +17,4 @@ export interface State {
     tableState: TableState;
 }
 
-export const defaultState: State = {
-    tableState: {
-        table: [[0]],
-        tableInfo: {
-            rowsCount: 1,
-            columnsCount: 1,
-            imagesCount: 0
-        }
-    }
-}
-
-export const store: Store = createStore(rootReducer)
+export const store: Store = createStore(rootReducer, applyMiddleware(logger));
