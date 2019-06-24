@@ -1,7 +1,7 @@
-import { combineReducers, Reducer } from "redux";
-import { State } from '../StoreConfig';
+import { combineReducers } from "redux";
+import { IAppState } from '../StoreConfig';
 import { tableReducer } from './tableReducer';
 
-export const rootReducer = combineReducers<State>({
+export const rootReducer = combineReducers<IAppState>({
     tableState: tableReducer
 })

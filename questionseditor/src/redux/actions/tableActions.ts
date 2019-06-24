@@ -6,7 +6,7 @@ export const addRow = () => {
     }
 }
 
-export const addCol = () => {
+export const addColumn = () => {
     return {
         type: ADD_COL
     }
